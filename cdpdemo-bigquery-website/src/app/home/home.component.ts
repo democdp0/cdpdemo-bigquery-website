@@ -20,10 +20,6 @@ export class HomeComponent implements OnInit {
       {
         this.loaded = true;
         this.users=response;
-  
-        for (const element of this.users) {
-          console.log(element["Name"])
-      }
     
       },
       (error) => console.log(error)
