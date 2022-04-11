@@ -8,7 +8,7 @@ import { Users } from '../Users';
 })
 
 export class DataComponent implements OnInit {
-  columns : string[] = ["Address","Name" ,"Email", "city" , "country", "primaryKey"];
+  columns : string[] = ["Address","Name" ,"Email", "city" , "country", "primaryKey","date"];
   constructor(private rs: RestService ) { }
   users : Users[] = [];
   loaded = false;
