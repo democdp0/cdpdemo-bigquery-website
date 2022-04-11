@@ -7,17 +7,20 @@ import { HomeComponent } from './home/home.component';
 import { RestService } from './rest.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GoldenrecordComponent } from './goldenrecord/goldenrecord.component';
-
+import { DataComponent } from './data/data.component';
+import { CustomMaterialModule } from './core/custom-material-module.module';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    GoldenrecordComponent
+    GoldenrecordComponent,
+    DataComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CustomMaterialModule
   ],
   providers: [RestService],
   bootstrap: [AppComponent]

@@ -1,22 +1,32 @@
-<div class="header">
-  <h2>
-    Data ingested from WooCommerce into BigQuery
-  </h2>
-</div>
-<table  class="table" *ngIf="loaded" id="users">
+<mat-grid-list  cols="3" rowHeight="1080px">
+  <mat-grid-tile>           
+    <iframe src="https://cdpdemo.cf">
+  </iframe></mat-grid-tile>
+  <mat-grid-tile>     <iframe  src="http://34.143.173.9/data">
+  </iframe></mat-grid-tile>
+  <mat-grid-tile>     <iframe  src="http://34.143.173.9/goldenrecord">
+  </iframe></mat-grid-tile>
+</mat-grid-list>
 
-    <thead>
-    <tr>
-      <th *ngFor="let col of columns">
-        {{col}}
-      </th>
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let user of users ">
-      <td *ngFor="let col of columns  ">
-        {{user[getKey(col)]}}
-      </td>
-    </tr>
-</tbody>
-  </table>
+    <!-- <div style="width: 100%" lass="container">
+        <div style="height: 100%"class="row g-0">
+          <div class="col-sm">
+              
+ 
+          </div>
+          <div class="col-sm">
+              
+  
+
+           
+
+          </div>
+          <div class="col-sm">
+        
+
+                <iframe  src="http://34.143.173.9/goldenrecord">
+                </iframe>
+     
+            </div>
+        </div>
+      </div> -->
