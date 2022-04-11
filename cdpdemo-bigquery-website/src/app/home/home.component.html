@@ -1,3 +1,10 @@
+<script>
+  window.setInterval("reloadIFrame();", 5000);
+  
+  function reloadIFrame() {
+   document.frames["data"].location.reload();
+  }
+  </script>
 
 <div style="height:100%" fxLayout="column">
 
@@ -15,7 +22,7 @@
             </ul>
           
             </div>
-        <iframe src="http://34.124.192.167/">
+        <iframe  src="http://34.124.192.167/">
         </iframe>
       </div>
       <div fxFlex>
@@ -23,7 +30,7 @@
           Collect
           </div>
           
-        <iframe  src="http://34.143.173.9/data">
+        <iframe  name="data" src="http://34.143.173.9/data">
         </iframe>
       </div>
       <div fxFlex>
