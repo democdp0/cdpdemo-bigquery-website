@@ -11,7 +11,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatGridListModule } from "@angular/material/grid-list";
-
+import { FlexLayoutModule } from "@angular/flex-layout";
 @NgModule({
   imports: [
     CommonModule,
@@ -28,7 +28,8 @@ import { MatGridListModule } from "@angular/material/grid-list";
     MatIconModule,
     MatGridListModule, 
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    FlexLayoutModule
   ],
   exports: [
   CommonModule,
@@ -45,7 +46,9 @@ import { MatGridListModule } from "@angular/material/grid-list";
    MatIconModule,
    MatGridListModule, 
    MatCardModule,
-   MatDialogModule
+   MatDialogModule,
+   FlexLayoutModule
+
    ],
 })
 export class CustomMaterialModule { }
