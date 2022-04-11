@@ -10,8 +10,8 @@ export class RestService {
 
   constructor(private http : HttpClient) { }
 
-  url : string = "http://34.142.161.251/wordpressdb"
-  goldenRecordUrl : string = "http://34.142.161.251/goldenrecord"
+  url : string = "https://api.cdpdemodashboard.tk/wordpressdb"
+  goldenRecordUrl : string = "https://api.cdpdemodashboard.tk/goldenrecord"
 
   getUsers()
   {
