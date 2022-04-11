@@ -9,7 +9,7 @@ import { Users } from '../Users';
   styleUrls: ['./goldenrecord.component.css']
 })
 export class GoldenrecordComponent implements OnInit {
-  columns : string[] = ["Address","Name" ,"Email", "city" , "country", "primaryKey"];
+  columns : string[] = ["Address","Name" ,"Email", "city" , "country", "primaryKey","date"];
   constructor(private rs: RestService ) { }
   users : Users[] = [];
   loaded = false;
