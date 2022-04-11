@@ -4,9 +4,9 @@ import { RestService } from '../rest.service';
 import { Users } from '../Users';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-goldenrecord',
+  templateUrl: './goldenrecord.component.html',
+  styleUrls: ['./goldenrecord.component.css']
 })
 export class GoldenrecordComponent implements OnInit {
   columns : string[] = ["Address","Name" ,"Email", "city" , "country", "primaryKey"];
