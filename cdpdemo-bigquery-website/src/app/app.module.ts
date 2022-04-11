@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RestService } from './rest.service';
 import { HttpClientModule } from '@angular/common/http';
+import { GoldenrecordComponent } from './goldenrecord/goldenrecord.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    GoldenrecordComponent
   ],
   imports: [
     BrowserModule,

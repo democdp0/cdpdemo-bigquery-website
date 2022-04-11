@@ -11,9 +11,14 @@ export class RestService {
   constructor(private http : HttpClient) { }
 
   url : string = "http://34.142.161.251/wordpressdb"
-
+  goldenRecordUrl : string = "http://34.142.161.251/goldenrecord"
 
   getUsers()
+  {
+    return this.http.get<Users[]>(this.url);
+  }
+
+  getGoldenRecord()
   {
     return this.http.get<Users[]>(this.url);
   }
