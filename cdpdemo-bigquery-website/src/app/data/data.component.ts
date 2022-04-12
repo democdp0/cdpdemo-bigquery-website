@@ -4,6 +4,7 @@ import { Users } from '../Users';
 import { SocketService } from '../socket.service';
 import { skip } from 'rxjs';
 import { animate, query, stagger, state, style, transition, trigger } from '@angular/animations';
+import * as _ from 'lodash';
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
@@ -102,9 +103,18 @@ export class DataComponent implements OnInit {
           {
             let array1 = this.users;
             let array2 = response;
-            let filteredArray = array2.filter((a) => array1.includes(a));
-            let secFilteredArray = array1.filter((a) => !filteredArray.includes(a));
-            this.users=secFilteredArray;
+
+            array1.forEach(function (value, i) {
+              if(!_.isEqual(array1[i],array2[i]))
+              {
+                array1[i]=array2[i];
+              }
+          });
+
+      
+    
+         
+            this.users=array1;
         
           }
 
