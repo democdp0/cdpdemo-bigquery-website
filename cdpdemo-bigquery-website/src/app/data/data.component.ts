@@ -98,9 +98,14 @@ export class DataComponent implements OnInit {
           this.loaded = true;
 
           if(this.users.length==0)
+          {
+            console.log("init")
             this.users=response;
+          }
+           
           else
           {
+            console.log("refreshing array")
             let array1 = this.users;
             let array2 = response;
 
