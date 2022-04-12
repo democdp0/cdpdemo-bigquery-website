@@ -17,10 +17,14 @@ iframe {
 .info{
     background-color: #F9F9F9;
 
-    height:auto;
+    height:100%;
     padding: 5px;
     font-size: 17px;
     width: 100%;   
  
 }
 
+/* Second Level */
+ul ul{
+    margin-left:15px;
+  }
