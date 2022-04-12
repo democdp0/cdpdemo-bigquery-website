@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
-
+import { Observable } from 'rxjs';
+import { io, Socket } from 'socket.io-client';
 @Injectable({
 	providedIn: 'root'
 })
 export class SocketService {
-  constructor(private socket: Socket) {}
+  constructor(private socket: Socket) {
+    this.socket = io('https://api.cdpdemodashboard.tk');
+  }
 
  // emit event
  fetchMovies() {
@@ -13,7 +15,11 @@ export class SocketService {
 } 
 
 // listen event
-OnReload() {
-  return this.socket.fromEvent('reload');
+onNewMessage() {
+  return new Observable(observer => {
+    this.socket.on('reload', msg => {
+      observer.next(msg);
+    });
+  });
 }
 }
