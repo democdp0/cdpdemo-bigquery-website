@@ -9,22 +9,36 @@
           <div class="info" >
             <h1>Retail CDP Demo with Lytics & Tamr</h1>
             <br><b>Tutorial</b><br>
+            <ol>
+              <li>Create a new user account in simulated ecommerce platform</li>
+              <li>Check out any product using fictitious data</li>
+              <li>Request support through live chat</li>
+              <li>Create audience in lytics (New User + Requested Support)</li>
+              <li>Activate (Send Voucher to Email)</li>
+            </ol>
+
+            <br><b>Use case 1</b><br>
             <ul>
-              <li>Step 1 : Create a new user account in simulated ecommerce platform</li>
-              <li>Step 2 : Check out any product using fictitious data</li>
-              <li>Step 3 : Request support through live chat</li>
-              <li>Step 4 : Create audience in lytics (New User + Requested Support)</li>
-              <li>Step 5 : Activate (Send Voucher to Email)</li>
+              <li>User A has registered and purchased product from ecommerce Site A</li>
+              <li>User A visited ecommerce Site B for the first time</li>
+              <li>With identity resolution , User A as higher likelihood to make a purchase</li>
             </ul>
+     
 
             <br><b>Process</b><br>
-            <ul>
+            <ol>
               <li>User registration and shopping activites stream to BigQuery using Google Analytics</li>
    
               <li>All datasets in BigQuery including from other ecommerce will be unified using TAMR</li>
               <li>New audience / segmentation is created using LYTICS</li>
               <li>Email campaign assign to selected audience using MailChimp</li>
-            </ul>
+            </ol>
+            <br><b>Reference Architecture</b><br>
+            <div >
+              <img onclick="window.open(this.src, '_blank');" style='height: 100%; width: 100%; object-fit: contain; padding:15px;' src="./assets/ref.png">
+            </div>
+
+     
           
             </div>
       </div>
