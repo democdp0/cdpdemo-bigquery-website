@@ -76,6 +76,15 @@ export class DataComponent implements OnInit {
       primaryKey: "country",
     });
   }
+
+  remove() {
+    this.users.splice(0, 1);
+  }
+
+  gen = () => {
+    this.users = [...this.users];
+  };
+
   ngOnInit(): void {
 
     //.pipe(skip(1))

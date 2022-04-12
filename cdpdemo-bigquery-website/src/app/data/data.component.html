@@ -1,4 +1,6 @@
 <button (click)="add()">Add</button>
+<button (click)="remove()">remove</button>
+<button (click)="gen()">adddd</button>
 <div class="header">
     <h2>
       Data ingested from WooCommerce into BigQuery
@@ -15,11 +17,18 @@
       </tr>
   </thead>
   <tbody>
-      <tr [@enterAnimation] *ngFor="let user of users ">
+    <ng-container *ngFor="let user of users ">
+      <tr [@enterAnimation]>
         <td *ngFor="let col of columns  ">
           {{user[getKey(col)]}}
         </td>
       </tr>
+    </ng-container>
+      <!-- <tr [@enterAnimation] *ngFor="let user of users ">
+        <td *ngFor="let col of columns  ">
+          {{user[getKey(col)]}}
+        </td>
+      </tr> -->
   </tbody>
     </table>
 
