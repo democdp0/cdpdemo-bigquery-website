@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { io, Socket } from 'socket.io-client';
-@Injectable()
+import { BehaviorSubject, Observable } from 'rxjs';
+import { io } from "socket.io-client";
+@Injectable({
+  providedIn: 'root',
+})
 export class SocketService {
-  constructor(private socket: Socket) {
-    this.socket = io('https://api.cdpdemodashboard.tk',{
-      rejectUnauthorized: false // WARN: please do not do this in production
-    });
+
+  public message$: BehaviorSubject<string> = new BehaviorSubject('');
+  constructor() {}
+
+  socket = io("https://api.cdpdemodashboard.tk");
+
+
+public sendMessage(message: any) {
+    this.socket.emit('message', message);
   }
 
- // emit event
- fetchMovies() {
-  this.socket.emit('fetchMovies');
-} 
-
-// listen event
-OnReload() {
-  return new Observable(observer => {
-    this.socket.on('reload', msg => {
-      observer.next(msg);
+  public getNewMessage = () => {
+    this.socket.on('reload', (message) =>{
+      this.message$.next(message);
     });
-  });
-}
+    
+    return this.message$.asObservable();
+  };
+
 }

@@ -22,6 +22,7 @@ import { CustomMaterialModule } from './core/custom-material-module.module';
     AppRoutingModule,
     HttpClientModule,
     CustomMaterialModule, 
+    
   ],
   providers: [RestService],
   bootstrap: [AppComponent]

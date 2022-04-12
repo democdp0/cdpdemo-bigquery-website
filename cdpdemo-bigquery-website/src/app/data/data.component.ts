@@ -26,7 +26,7 @@ export class DataComponent implements OnInit {
       (error) => console.log(error)
     )
 
-    this.socketService.OnReload().subscribe((data: any) => 
+    this.socketService.getNewMessage().subscribe((data: any) => 
     console.log("reload now"))
   }
 
