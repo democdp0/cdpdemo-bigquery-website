@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Users } from '../Users';
 import { SocketService } from '../socket.service';
+import { skip } from 'rxjs';
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
@@ -26,7 +27,7 @@ export class DataComponent implements OnInit {
       (error) => console.log(error)
     )
 
-    this.socketService.getNewMessage().subscribe((data: any) => 
+    this.socketService.getNewMessage().pipe(skip(1)).subscribe((data: any) => 
     console.log("reload now")
     
     
