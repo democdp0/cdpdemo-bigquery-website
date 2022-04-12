@@ -1,20 +1,21 @@
-
+<button (click)="add()">Add</button>
 <div class="header">
     <h2>
       Data ingested from WooCommerce into BigQuery
     </h2>
+
   </div>
   <table  class="table" *ngIf="loaded" id="users">
   
       <thead>
-      <tr>
+      <tr [@enterAnimation]>
         <th *ngFor="let col of columns">
           {{col}}
         </th>
       </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let user of users ">
+      <tr [@enterAnimation] *ngFor="let user of users ">
         <td *ngFor="let col of columns  ">
           {{user[getKey(col)]}}
         </td>
