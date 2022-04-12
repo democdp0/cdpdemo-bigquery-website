@@ -16,8 +16,8 @@ iframe {
 
 .info{
     background-color: #F9F9F9;
-    color: black;
-    height:100px;
+
+    height:auto;
     padding: 5px;
     font-size: 17px;
     width: 100%;   
