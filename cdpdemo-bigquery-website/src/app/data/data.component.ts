@@ -30,7 +30,7 @@ import * as _ from 'lodash';
     ]),
     trigger("enterAnimation", [
       transition(":enter", [
-        style({ opacity: 1 }),
+        style({ opacity: 0 , color: "#ffffff"}),
         animate(
           "500ms",
           style({
