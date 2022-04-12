@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Users } from '../Users';
+import { SocketService } from '../socket.service';
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
@@ -9,7 +10,7 @@ import { Users } from '../Users';
 
 export class DataComponent implements OnInit {
   columns : string[] = ["Address","Name" ,"Email", "city" , "country", "primaryKey","date"];
-  constructor(private rs: RestService ) { }
+  constructor(private rs: RestService ,private socketService: SocketService) { }
   users : Users[] = [];
   loaded = false;
   ngOnInit(): void {
@@ -24,6 +25,9 @@ export class DataComponent implements OnInit {
       },
       (error) => console.log(error)
     )
+
+    this.socketService.OnReload().subscribe((data: any) => 
+    console.log("reload now"))
   }
 
   getKey(str : string)
