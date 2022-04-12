@@ -95,7 +95,13 @@ export class DataComponent implements OnInit {
         (response)=>
         {
           this.loaded = true;
-          this.users=response;
+          //this.users=response;
+
+          let array1 = this.users;
+          let array2 = response;
+          let filteredArray = array2.filter((a) => array1.includes(a));
+          let secFilteredArray = array1.filter((a) => !filteredArray.includes(a));
+          this.users=secFilteredArray;
       
         },
         (error) => console.log(error)
