@@ -16,19 +16,23 @@ export class DataComponent implements OnInit {
   loaded = false;
   ngOnInit(): void {
 
-    this.rs.getUsers().subscribe
-    (
-      (response)=>
-      {
-        this.loaded = true;
-        this.users=response;
-    
-      },
-      (error) => console.log(error)
-    )
 
-    this.socketService.getNewMessage().pipe(skip(1)).subscribe((data: any) => 
-    console.log("reload now")
+    //.pipe(skip(1))
+    this.socketService.getNewMessage().subscribe((data: any) => 
+    {
+      this.rs.getUsers().subscribe
+      (
+        (response)=>
+        {
+          this.loaded = true;
+          this.users=response;
+      
+        },
+        (error) => console.log(error)
+      )
+      console.log("reload now")
+    }
+
     
     
     )

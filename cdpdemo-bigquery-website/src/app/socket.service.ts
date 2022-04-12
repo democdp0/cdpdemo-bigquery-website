@@ -19,8 +19,9 @@ public sendMessage(message: any) {
   public getNewMessage = () => {
     this.socket.on('reload', (message) =>{
       this.message$.next(message);
+      console.log("getNewMessage")
     });
-    console.log("getNewMessage")
+
     return this.message$.asObservable();
   };
 
