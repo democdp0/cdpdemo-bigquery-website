@@ -24,19 +24,28 @@ export class HomeComponent implements OnInit {
     script.type = `text/javascript`;
     script.text = `
         {
+          function createCookie(name, value, days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                var expires = "; expires=" + date.toGMTString();
+            }
+            else var expires = "";
+            document.cookie = name + "=" + value + expires + "; path=/";
+            console.log("creating cookie");
+        }
+
           window.addEventListener("message",
           function (e) {
              if (e.origin !== 'https://cdpdemoportal.tk') 
              { return; 
             }
       
-            console.log("adding listener");
- 
+            console.log("adding listener"+e.data);
+         
              },false);
 
-          var cookie = document.getElementById("goldenrecord").contentDocument.cookie;
-  console.log(cookie +">>");
-  console.log("hello");
+
         }
     `;
 
