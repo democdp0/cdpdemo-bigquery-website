@@ -63,6 +63,7 @@ export class GoldenrecordComponent implements OnInit {
         }
     `;
 
+    this._renderer2.appendChild(this._document.body, script);
   }
 
   getKey(str : string)
