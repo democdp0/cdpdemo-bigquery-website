@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { RestService } from '../rest.service';
 import { Users } from '../Users';
 
@@ -9,9 +10,23 @@ import { Users } from '../Users';
 })
 export class HomeComponent implements OnInit {
 
-  ngOnInit(): void {
 
+
+  constructor( private cookieService: CookieService ) { }
+    
+  ngOnInit(): void {
+    console.log("init");
+    this.getLoggedInUser();
    
+  }
+  getLoggedInUser()
+  {
+    console.log("getting cookies")
+    var cookies = this.cookieService.getAll();
+
+    for(var attributename in cookies){
+      console.log(attributename+": "+cookies[attributename]);
+  }
   }
 
 }
