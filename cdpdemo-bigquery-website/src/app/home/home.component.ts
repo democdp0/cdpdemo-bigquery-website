@@ -31,9 +31,9 @@ export class HomeComponent implements OnInit {
             }
       
             console.log("adding listener");
-                alert(e.data);
+ 
              },false);
-             
+
           var cookie = document.getElementById("goldenrecord").contentDocument.cookie;
   console.log(cookie +">>");
   console.log("hello");
