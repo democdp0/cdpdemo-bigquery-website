@@ -15,18 +15,18 @@ export class HomeComponent implements OnInit {
   constructor( private cookieService: CookieService ) { }
     
   ngOnInit(): void {
-    console.log("init");
+
     this.getLoggedInUser();
    
   }
   getLoggedInUser()
   {
     console.log("getting cookies")
-    var cookies = this.cookieService.getAll();
+    const cookies: {} = this.cookieService.getAll();
 
-    for(var attributename in cookies){
-      console.log(attributename+": "+cookies[attributename]);
-  }
+  
+      console.log(cookies);
+
   }
 
 }
