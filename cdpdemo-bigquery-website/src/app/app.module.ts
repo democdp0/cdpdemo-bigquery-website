@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GoldenrecordComponent } from './goldenrecord/goldenrecord.component';
 import { DataComponent } from './data/data.component';
 import { CustomMaterialModule } from './core/custom-material-module.module';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { CustomMaterialModule } from './core/custom-material-module.module';
     BrowserAnimationsModule
     
   ],
-  providers: [RestService],
+  providers: [RestService,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

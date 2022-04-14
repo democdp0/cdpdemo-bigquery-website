@@ -24,6 +24,7 @@
     "body-parser": "^1.20.0",
     "lodash": "^4.17.21",
     "lodash.isequal": "^4.5.0",
+    "ngx-cookie-service": "^13.2.0",
     "ngx-socket-io": "^4.2.0",
     "pm2": "^5.2.0",
     "rxjs": "~7.5.0",
