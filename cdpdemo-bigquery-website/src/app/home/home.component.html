@@ -1,4 +1,12 @@
 
+  <script>
+    window.addEventListener("message",
+    function (e) {
+       if (e.origin !== 'https://cdpdemoportal.tk') { return; }
+          alert(e.data);
+       },false);
+</script>
+
 <div style="height:100% ; width:2800px; " fxLayout="column">
 
   <div   fxLayout="row" fxLayoutGap="0px" fxFlex>
@@ -61,7 +69,7 @@
         <div class="header" >
           Transform <a target="_blank" href="http://34.87.0.81:9100"><img src="./assets/maximize.svg"  height="25"width="25" fill="white"></a> 
           </div>
-        <iframe  frameBorder="0" src="https://cdpdemodashboard.tk/goldenrecord">
+        <iframe id="goldenrecord" frameBorder="0" src="https://cdpdemodashboard.tk/goldenrecord">
         </iframe>
     </div>
     <div fxFlex>

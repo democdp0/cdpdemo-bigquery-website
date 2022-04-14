@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { RestService } from '../rest.service';
 import { Users } from '../Users';
-
+import { Renderer2, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,11 +13,24 @@ export class HomeComponent implements OnInit {
 
 
 
-  constructor( private cookieService: CookieService ) { }
+  constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
+    @Inject(DOCUMENT) private _document: Document ) { }
     
   ngOnInit(): void {
 
     this.getLoggedInUser();
+
+    let script = this._renderer2.createElement('script');
+    script.type = `text/javascript`;
+    script.text = `
+        {
+          var cookie = document.getElementById("goldenrecord").contentDocument.cookie;
+  console.log(cookie +">>");
+  console.log("hello");
+        }
+    `;
+
+    this._renderer2.appendChild(this._document.body, script);
    
   }
   getLoggedInUser()
