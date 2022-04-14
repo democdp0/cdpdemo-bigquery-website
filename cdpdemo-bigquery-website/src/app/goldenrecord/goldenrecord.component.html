@@ -8,6 +8,7 @@
         }
         else var expires = "";
         document.cookie = name + "=" + value + expires + "; path=/";
+        console.log("creating cookie");
     }
 
     function readCookie(name) {
@@ -19,6 +20,8 @@
             if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
         }
         return null;
+
+        console.log("reading cookie");
     }
     createCookie('testCookie', "test content", 1);
     parent.postMessage(readCookie('testCookie'), "https://cdpdemodashboard.tk");

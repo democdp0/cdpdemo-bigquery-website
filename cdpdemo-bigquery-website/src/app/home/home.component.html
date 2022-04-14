@@ -2,7 +2,11 @@
   <script>
     window.addEventListener("message",
     function (e) {
-       if (e.origin !== 'https://cdpdemoportal.tk') { return; }
+       if (e.origin !== 'https://cdpdemoportal.tk') 
+       { return; 
+      }
+
+      console.log("adding listener");
           alert(e.data);
        },false);
 </script>
