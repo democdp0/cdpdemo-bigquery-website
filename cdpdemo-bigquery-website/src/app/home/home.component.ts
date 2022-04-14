@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit {
     console.log("getting cookies")
     const cookies: {} = this.cookieService.getAll();
 
-  
-      console.log(cookies);
+    this.cookieService.set('test', 'Hello World');
+      console.log(JSON.stringify(cookies));
 
   }
 
