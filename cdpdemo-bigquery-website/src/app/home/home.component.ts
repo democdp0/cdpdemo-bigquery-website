@@ -24,6 +24,16 @@ export class HomeComponent implements OnInit {
     script.type = `text/javascript`;
     script.text = `
         {
+          window.addEventListener("message",
+          function (e) {
+             if (e.origin !== 'https://cdpdemoportal.tk') 
+             { return; 
+            }
+      
+            console.log("adding listener");
+                alert(e.data);
+             },false);
+             
           var cookie = document.getElementById("goldenrecord").contentDocument.cookie;
   console.log(cookie +">>");
   console.log("hello");
