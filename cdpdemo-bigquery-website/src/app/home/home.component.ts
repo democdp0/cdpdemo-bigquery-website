@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     script.type = `text/javascript`;
     script.text = `
         {
-    
+        }
     `;
 
     this._renderer2.appendChild(this._document.body, script);
