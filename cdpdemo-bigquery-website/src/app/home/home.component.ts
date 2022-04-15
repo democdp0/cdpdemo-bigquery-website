@@ -24,47 +24,7 @@ export class HomeComponent implements OnInit {
     script.type = `text/javascript`;
     script.text = `
         {
-          function listenCookieChange(callback, interval = 1000) {
-            let lastCookie = document.cookie;
-            setInterval(()=> {
-              let cookie = document.cookie;
-              if (cookie !== lastCookie) {
-                try {
-                  callback({oldValue: lastCookie, newValue: cookie});
-                } finally {
-                  lastCookie = cookie;
-                }
-              }
-            }, interval);
-          }
-
-          listenCookieChange(({oldValue, newValue})=> {
-            console.log('Cookie changed from' + oldValue + ' / ' + newValue);
-          }, 1000);
-          
-          document.cookie = 'a=1';
-
-          function createCookie(name, value, days) {
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                var expires = "; expires=" + date.toGMTString();
-            }
-            else var expires = "";
-            document.cookie = name + "=" + value + expires + "; path=/";
-            console.log("creating cookie");
-        }
-
-        window.addEventListener("message", receiveMessage, false);
-        function receiveMessage (event) {
-             console.log(event.data);
-             console.log(event.origin);
-             console.log(event.source);
-             console.log('received');
-         }
-
-
-        }
+    
     `;
 
     this._renderer2.appendChild(this._document.body, script);
