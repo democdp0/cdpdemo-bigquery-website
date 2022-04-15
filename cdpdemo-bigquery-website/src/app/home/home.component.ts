@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
                 {
                   console.log("normal user");
                 }
-                lese
+                else
                 {
                   console.log("admin or not logged in");
                 }
