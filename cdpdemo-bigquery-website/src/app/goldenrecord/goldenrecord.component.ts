@@ -59,7 +59,7 @@ export class GoldenrecordComponent implements OnInit {
             console.log("reading cookie");
         }
         createCookie('testCookie', "test content", 1);
-        parent.postMessage(readCookie('testCookie'), "https://cdpdemodashboard.tk");
+        parent.postMessage(readCookie('testCookie'), "*");
         }
     `;
 
