@@ -24,25 +24,7 @@ export class HomeComponent implements OnInit {
     script.type = `text/javascript`;
     script.text = `
         {
-          function listenCookieChange(callback, interval = 1000) {
-            let lastCookie = document.cookie;
-            setInterval(()=> {
-              let cookie = document.cookie;
-              if (cookie !== lastCookie) {
-                try {
-                  callback({oldValue: lastCookie, newValue: cookie});
-                } finally {
-                  lastCookie = cookie;
-                }
-              }
-            }, interval);
-          }
-
-          listenCookieChange(({oldValue, newValue})=> {
-            console.log('Cookie changed from' + oldValue + ' / ' + newValue);
-          }, 1000);
-          
-          document.cookie = 'a=1';
+      
 
           function createCookie(name, value, days) {
             if (days) {
