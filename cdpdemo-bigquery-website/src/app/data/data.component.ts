@@ -100,13 +100,11 @@ export class DataComponent implements OnInit {
 
           if(this.users.length==0)
           {
-            console.log("init")
             this.users=response;
           }
            
           else
           {
-            console.log("refreshing array")
             let array1 = this.users;
             let array2 = response;
 
@@ -128,7 +126,7 @@ export class DataComponent implements OnInit {
         },
         (error) => console.log(error)
       )
-      console.log("reload now")
+      console.log("Reload now : new data from big query")
     }
 
     
