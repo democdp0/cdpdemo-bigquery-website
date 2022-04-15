@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
         function receiveMessage (event) {
              console.log(event.data);
              var str = event.data.split(":");
-             if(str[0]=="user")
+             if(str[0]=="userid")
              {
                 if(parseInt(str[1]) >1 )
                 {
