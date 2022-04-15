@@ -26,23 +26,10 @@ export class HomeComponent implements OnInit {
         {
       
 
-          function createCookie(name, value, days) {
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                var expires = "; expires=" + date.toGMTString();
-            }
-            else var expires = "";
-            document.cookie = name + "=" + value + expires + "; path=/";
-            console.log("creating cookie");
-        }
 
         window.addEventListener("message", receiveMessage, false);
         function receiveMessage (event) {
              console.log(event.data);
-             console.log(event.origin);
-             console.log(event.source);
-             console.log('received');
          }
 
 
