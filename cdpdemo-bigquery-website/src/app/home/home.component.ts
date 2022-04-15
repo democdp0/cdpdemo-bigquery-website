@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
           window.onload = function(){
             setTimeout(function(){
               document.getElementById('data_wp').src = 'https://cdpdemoportal.tk';
-            },5000);
+            },50000);
            };
 
           function createCookie(name, value, days) {
@@ -44,9 +44,12 @@ export class HomeComponent implements OnInit {
 
           window.addEventListener("message",
           function (e) {
-             if (e.origin !== 'https://cdpdemoportal.tk') 
-             { return; 
-            }
+            //  if (e.origin !== 'https://cdpdemoportal.tk') 
+            //  { return; 
+            // }
+
+            if (e.origin === "null" && e.source === frame.contentWindow)
+              alert('Result: ' + e.data);
       
             console.log("adding listener"+e.data);
          
