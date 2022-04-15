@@ -42,18 +42,13 @@ export class HomeComponent implements OnInit {
             console.log("creating cookie");
         }
 
-          window.addEventListener("message",
-          function (e) {
-            //  if (e.origin !== 'https://cdpdemoportal.tk') 
-            //  { return; 
-            // }
-
-            if (e.origin === "null" && e.source === frame.contentWindow)
-              alert('Result: ' + e.data);
-      
-            console.log("adding listener"+e.data);
-         
-             },false);
+        window.addEventListener("message", receiveMessage, false);
+        function receiveMessage (event) {
+             console.log(event.data);
+             console.log(event.origin);
+             console.log(event.source);
+             console.log('received');
+         }
 
 
         }
