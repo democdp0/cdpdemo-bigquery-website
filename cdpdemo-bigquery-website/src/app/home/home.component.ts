@@ -24,6 +24,13 @@ export class HomeComponent implements OnInit {
     script.type = `text/javascript`;
     script.text = `
         {
+
+          window.onload = function(){
+            setTimeout(function(){
+              document.getElementById('data_wp').src = 'https://cdpdemoportal.tk';
+            },5000);
+           };
+
           function createCookie(name, value, days) {
             if (days) {
                 var date = new Date();
