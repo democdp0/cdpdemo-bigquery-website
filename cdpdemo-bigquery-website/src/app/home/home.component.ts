@@ -18,8 +18,6 @@ export class HomeComponent implements OnInit {
     
   ngOnInit(): void {
 
-    this.getLoggedInUser();
-
     let script = this._renderer2.createElement('script');
     script.type = `text/javascript`;
     script.text = `
@@ -52,15 +50,6 @@ export class HomeComponent implements OnInit {
 
     this._renderer2.appendChild(this._document.body, script);
    
-  }
-  getLoggedInUser()
-  {
-    console.log("getting cookies")
-    const cookies: {} = this.cookieService.getAll();
-
-    this.cookieService.set('test', 'Hello World');
-      console.log(JSON.stringify(cookies));
-
   }
 
 }
