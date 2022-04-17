@@ -14,7 +14,7 @@ import { throws } from 'assert';
 export class HomeComponent implements OnInit {
 
 
-  public userID : number = 0 ; 
+   userID : number = 0 ; 
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
     @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,   ) {
 
