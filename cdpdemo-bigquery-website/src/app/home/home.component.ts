@@ -34,18 +34,8 @@ export class HomeComponent implements OnInit {
              var str = event.data.split(":");
              if(str[0]=="userid")
              {
-                if(parseInt(str[1]) >1 )
-                {
-                  console.log("normal user");
-                  window.angularComponentReference.zone.run(() => { window.angularComponentReference.loadAngularFunction(true); });  
-        
-                }
-                else
-                {
-                  console.log("admin or not logged in");
-                  window.angularComponentReference.zone.run(() => { window.angularComponentReference.loadAngularFunction(false); }); 
-    
-                }
+              window.angularComponentReference.zone.run(() => { window.angularComponentReference.loadAngularFunction(parseInt(str[1]); });  
+               
              }
          
          }
@@ -57,13 +47,13 @@ export class HomeComponent implements OnInit {
 
     this._renderer2.appendChild(this._document.body, script);
    
-    (window as any) ["angularComponentReference"] = { component: this, zone: this.ngZone, loadAngularFunction: (temp:boolean) => this.refreshGraph(temp), };  
+    (window as any) ["angularComponentReference"] = { component: this, zone: this.ngZone, loadAngularFunction: (temp:number) => this.refreshGraph(temp), };  
   }
 
-   refreshGraph(isUser : boolean)
+   refreshGraph(isUser : number)
   {
     console.log(isUser + ">>");
-    //this.loggedUser.myMethod
+    this.loggedUser.myMethod(isUser);
   }
 
 }

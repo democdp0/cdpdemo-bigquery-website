@@ -1,10 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { RestService } from '../rest.service';
 import { Users } from '../Users';
 import { Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { LoggedUserService } from '../logged-user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-goldenrecord',
@@ -12,24 +13,28 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./goldenrecord.component.css']
 })
 export class GoldenrecordComponent implements OnInit {
-  columns : string[] = ["Address","Name" ,"Email", "city" , "country", "primaryKey","date"];
-  constructor(private rs: RestService , private _renderer2: Renderer2, 
-    @Inject(DOCUMENT) private _document: Document ) { }
-    
-  users : Users[] = [];
-  loaded = false;
+
+  constructor( private _renderer2: Renderer2, 
+    @Inject(DOCUMENT) private _document: Document , private loggedUser: LoggedUserService,private route: ActivatedRoute) { 
+      
+      this.loggedUser.myMethod$.subscribe((data) => {
+        this.userID = data; // And he have data here too!
+    }
+);
+
+    }
+
+  userID : number = 0;
+  private id: number =0;
+  private sub: any;
+
   ngOnInit(): void {
 
-    this.rs.getGoldenRecord().subscribe
-    (
-      (response)=>
-      {
-        this.loaded = true;
-        this.users=response;
-    
-      },
-      (error) => console.log(error)
-    )
+    this.sub = this.route.params.subscribe(params => {
+      this.id = +params['id']; // (+) converts string 'id' to a number
+
+      // In a real app: dispatch action to load the details here.
+   });
 
     let script = this._renderer2.createElement('script');
     script.type = `text/javascript`;
@@ -60,7 +65,7 @@ export class GoldenrecordComponent implements OnInit {
                   "caption": false
                 }
               },
-              initial_cypher: "MATCH (n:Person)-[r]-(d) where n.email = 'colin5905@hotmail.com' RETURN n,r,d"
+              initial_cypher: "MATCH (n:Person)-[r]-(d) where r.wp_userid = ` +  this.id   + ` RETURN n,r,d"
             };
       
             viz = new NeoVis.default(config);

@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'data', component: DataComponent },
-  { path: 'goldenrecord', component: GoldenrecordComponent },
+  { path: 'goldenrecord/:id', component: GoldenrecordComponent },
 
 ];
 
