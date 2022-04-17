@@ -39,6 +39,8 @@ export class GoldenrecordComponent implements OnInit {
    
           function draw() {
             var config = {
+              encrypted: "ENCRYPTION_ON",
+              trust: "TRUST_SYSTEM_CA_SIGNED_CERTIFICATES",
               container_id: "viz",
               server_url: "bolt://neo4j.cdpdemodashboard.tk/:7687",
               server_user: "neo4j",
