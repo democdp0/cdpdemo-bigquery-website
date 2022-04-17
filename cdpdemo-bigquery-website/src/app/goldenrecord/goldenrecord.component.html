@@ -1,23 +1,46 @@
 
-<div class="header">
+<div onload="draw()">
+  <div class="header">
     <h2>
-      Golden Record in BigQuery
+      Identity Resolution
     </h2>
   </div>
-  <table  class="table" *ngIf="loaded" id="users">
-  
-      <thead>
-      <tr>
-        <th *ngFor="let col of columns">
-          {{col}}
-        </th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr *ngFor="let user of users ">
-        <td *ngFor="let col of columns  ">
-          {{user[getKey(col)]}}
-        </td>
-      </tr>
-  </tbody>
-    </table>
+
+  <div id="viz"></div>
+
+</div>
+
+<script type="text/javascript">
+
+  var viz;
+
+  function draw() {
+      var config = {
+          container_id: "viz",
+          server_url: "bolt://localhost:7687",
+          server_user: "neo4j",
+          server_password: "sorts-swims-burglaries",
+          labels: {
+              "Character": {
+                  "caption": "name",
+                  "size": "pagerank",
+                  "community": "community",
+                  "title_properties": [
+                      "name",
+                      "pagerank"
+                  ]
+              }
+          },
+          relationships: {
+              "INTERACTS": {
+                  "thickness": "weight",
+                  "caption": false
+              }
+          },
+          initial_cypher: "MATCH (n)-[r:INTERACTS]->(m) RETURN *"
+      };
+
+      viz = new NeoVis.default(config);
+      viz.render();
+  }
+</script>
