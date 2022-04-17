@@ -4,6 +4,7 @@ import { RestService } from '../rest.service';
 import { Users } from '../Users';
 import { Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { LoggedUserService } from '../logged-user.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,7 +15,9 @@ export class HomeComponent implements OnInit {
 
 
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
-    @Inject(DOCUMENT) private _document: Document ) { }
+    @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService ) {
+
+     }
     
   ngOnInit(): void {
 
@@ -34,10 +37,12 @@ export class HomeComponent implements OnInit {
                 if(parseInt(str[1]) >1 )
                 {
                   console.log("normal user");
+                  refreshGraph(true);
                 }
                 else
                 {
                   console.log("admin or not logged in");
+                  refreshGraph(false);
                 }
              }
          
@@ -50,6 +55,12 @@ export class HomeComponent implements OnInit {
 
     this._renderer2.appendChild(this._document.body, script);
    
+  }
+
+   refreshGraph(isUser : boolean)
+  {
+    console.log(isUser + ">>");
+    //this.loggedUser.myMethod
   }
 
 }
