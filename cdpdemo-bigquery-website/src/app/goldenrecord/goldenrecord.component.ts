@@ -24,7 +24,7 @@ export class GoldenrecordComponent implements OnInit {
     }
 
 
-  userID : number = 0;
+  public userID : number = 0;
   private id: number =0;
   private sub: any;
 
