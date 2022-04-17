@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { RestService } from '../rest.service';
 import { Users } from '../Users';
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
 
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
-    @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService ) {
+    @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,   ) {
 
      }
     
@@ -37,12 +37,14 @@ export class HomeComponent implements OnInit {
                 if(parseInt(str[1]) >1 )
                 {
                   console.log("normal user");
-                  refreshGraph(true);
+                  window.angularComponentReference.zone.run(() => { window.angularComponentReference.loadAngularFunction(true); });  
+        
                 }
                 else
                 {
                   console.log("admin or not logged in");
-                  refreshGraph(false);
+                  window.angularComponentReference.zone.run(() => { window.angularComponentReference.loadAngularFunction(false); }); 
+    
                 }
              }
          
@@ -55,6 +57,7 @@ export class HomeComponent implements OnInit {
 
     this._renderer2.appendChild(this._document.body, script);
    
+    (window as any) ["angularComponentReference"] = { component: this, zone: this.ngZone, loadAngularFunction: (temp:boolean) => this.refreshGraph(temp), };  
   }
 
    refreshGraph(isUser : boolean)
