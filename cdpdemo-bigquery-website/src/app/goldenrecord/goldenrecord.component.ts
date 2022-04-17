@@ -63,7 +63,7 @@ export class GoldenrecordComponent implements OnInit {
       
             viz = new NeoVis.default(config);
             viz.render();
-            console.log(viz);
+            console.log("Drawing");
             draw();
         }
     `;
