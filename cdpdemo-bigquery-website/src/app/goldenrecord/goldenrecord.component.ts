@@ -65,7 +65,7 @@ export class GoldenrecordComponent implements OnInit {
                   "caption": false
                 }
               },
-              initial_cypher: "MATCH (n:Person)-[r]-(d) where r.wp_userid = 'colin5905@hotmail.com' RETURN n,r,d"
+              initial_cypher: "MATCH (n:Person)-[r]-(d) where r.email = 'colin5905@hotmail.com' RETURN n,r,d"
             };
       
             viz = new NeoVis.default(config);
