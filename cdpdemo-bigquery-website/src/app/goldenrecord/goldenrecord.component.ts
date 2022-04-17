@@ -43,7 +43,7 @@ export class GoldenrecordComponent implements OnInit {
                   container_id: "viz",
                   server_url: "bolt://34.143.223.200/:7687",
                   server_user: "neo4j",
-                  server_password: "sorts-swims-burglaries",
+                  server_password: "dt",
                   labels: {
                       "Character": {
                           "caption": "name",
