@@ -5,6 +5,7 @@ import { Users } from '../Users';
 import { Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { LoggedUserService } from '../logged-user.service';
+import { throws } from 'assert';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,7 +14,7 @@ import { LoggedUserService } from '../logged-user.service';
 export class HomeComponent implements OnInit {
 
 
-
+  public userID : number = 0 ; 
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
     @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,   ) {
 
@@ -53,6 +54,7 @@ export class HomeComponent implements OnInit {
    refreshGraph(isUser : number)
   {
     console.log(isUser + ">>");
+    this.userID = isUser;
     this.loggedUser.myMethod(isUser);
   }
 
