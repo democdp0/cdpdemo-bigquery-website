@@ -15,6 +15,13 @@ iframe {
     text-align: center;
 }
 
+.card{
+    background-color: white;
+    border-radius:5px;
+    width: 100%;
+    text-align: center;
+}
+
 .info{
     background-color: #F9F9F9;
 
