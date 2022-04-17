@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
              var str = event.data.split(":");
              if(str[0]=="userid")
              {
-              window.angularComponentReference.zone.run(() => { window.angularComponentReference.loadAngularFunction(parseInt(str[1]); });  
+              window.angularComponentReference.zone.run(() => { window.angularComponentReference.loadAngularFunction(parseInt(str[1])); });  
                
              }
          
