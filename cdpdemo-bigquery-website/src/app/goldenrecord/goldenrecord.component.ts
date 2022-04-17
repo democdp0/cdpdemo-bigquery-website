@@ -36,7 +36,7 @@ export class GoldenrecordComponent implements OnInit {
     script.text = `
         {
           var viz;
-
+   
           function draw() {
             var config = {
               container_id: "viz",
@@ -64,6 +64,7 @@ export class GoldenrecordComponent implements OnInit {
             viz = new NeoVis.default(config);
             viz.render();
             console.log(viz);
+            draw();
         }
     `;
 
