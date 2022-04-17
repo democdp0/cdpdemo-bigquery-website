@@ -40,7 +40,7 @@ export class GoldenrecordComponent implements OnInit {
           function draw() {
             var config = {
               container_id: "viz",
-              server_url: "bolt://34.143.223.200/:7687",
+              server_url: "bolt://neo4j.cdpdemodashboard.tk/:7687",
               server_user: "neo4j",
               server_password: "dt",
               labels: {
