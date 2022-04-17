@@ -66,6 +66,7 @@ export class GoldenrecordComponent implements OnInit {
             console.log("Drawing");
             draw();
         }
+      }
     `;
 
     this._renderer2.appendChild(this._document.body, script);
