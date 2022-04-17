@@ -1,11 +1,10 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { RestService } from '../rest.service';
-import { Users } from '../Users';
+
 import { Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { LoggedUserService } from '../logged-user.service';
-import { throws } from 'assert';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
