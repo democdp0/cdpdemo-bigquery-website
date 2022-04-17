@@ -32,7 +32,7 @@ export class GoldenrecordComponent implements OnInit {
 
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-
+      console.log("Loading" + this.id);
       // In a real app: dispatch action to load the details here.
    });
 
