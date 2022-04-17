@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 
+
 import { Users } from '../Users';
 import { Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
@@ -23,6 +24,7 @@ export class GoldenrecordComponent implements OnInit {
 );
 
     }
+
 
   userID : number = 0;
   private id: number =0;
@@ -65,7 +67,7 @@ export class GoldenrecordComponent implements OnInit {
                   "caption": false
                 }
               },
-              initial_cypher: "MATCH (n:Person)-[r]-(d) where r.wp_userid = ` +  this.id   + ` RETURN n,r,d"
+              initial_cypher: "MATCH (n:Person)-[r]-(d) where r.wp_userid = 'colin5905@hotmail.com' RETURN n,r,d"
             };
       
             viz = new NeoVis.default(config);
