@@ -1,8 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
 
-
-import { Users } from '../Users';
 import { Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { LoggedUserService } from '../logged-user.service';
@@ -81,12 +79,5 @@ export class GoldenrecordComponent implements OnInit {
 
     this._renderer2.appendChild(this._document.body, script);
   }
-
-  getKey(str : string)
-  {
-    return str as keyof Users;
-  }
-
-
 
 }
