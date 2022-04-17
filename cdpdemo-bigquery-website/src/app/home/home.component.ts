@@ -12,7 +12,7 @@ import { LoggedUserService } from '../logged-user.service';
 })
 export class HomeComponent implements OnInit {
 
-
+  public userID_str : string ="0"
    userID : number = 0 ; 
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
     @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,   ) {
@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit {
   {
     console.log(isUser + ">>");
     this.userID = isUser;
+    this.userID_str = String(isUser);
     this.loggedUser.myMethod(isUser);
   }
 
