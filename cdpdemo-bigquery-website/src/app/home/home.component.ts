@@ -67,13 +67,14 @@ export class HomeComponent implements OnInit {
     this.ifr.nativeElement["src"] = this.url;
 
     this.loggedUser.myMethod(isUser);
+    console.log("show graph");
    // $scope.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.userID;
    }
 
    else
    {
     this.showGraph=false;
-    console.log("Showing graph");
+    console.log("hide graph");
    }
 
     
