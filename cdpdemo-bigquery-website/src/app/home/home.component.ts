@@ -55,8 +55,9 @@ export class HomeComponent implements OnInit {
 
    refreshGraph(isUser : number)
   {
-    console.log(isUser + ">>");
+   
     this.userID = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
+    console.log(this.userID);
     this.loggedUser.myMethod(isUser);
    // $scope.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.userID;
   }
