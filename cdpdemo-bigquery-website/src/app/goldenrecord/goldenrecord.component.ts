@@ -69,7 +69,8 @@ export class GoldenrecordComponent implements OnInit {
                     "caption": false
                   }
                 },
-                initial_cypher: "MATCH (w)-[c:CUSTOMER]->(d) , (w)-[b:BOUGHT]->(e) , (w)-[v:visited]->(web) where c.wp_userid = ` + this.id +` RETURN w,b,c,d,e,v,web"
+                initial_cypher: " MATCH (p)-[c:CUSTOMER]->(w) where c.wp_userid = ` + String(this.id) +` OPTIONAL MATCH (p)-[b:BOUGHT]->(prod) OPTIONAL MATCH (p)-[v:visited]->(blog)     RETURN p,w,b,c,prod,v,blog"
+
               };
         
               viz = new NeoVis.default(config);
