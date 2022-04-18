@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, Input, NgZone, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 import { Renderer2, Inject } from '@angular/core';
@@ -10,10 +10,13 @@ import { LoggedUserService } from '../logged-user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
+
 export class HomeComponent implements OnInit {
 
-  public userID_str : string ="0"
-   userID : number = 0 ; 
+  @Input()
+  public userID : number = 0 ; 
+
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
     @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,   ) {
 
@@ -54,8 +57,13 @@ export class HomeComponent implements OnInit {
   {
     console.log(isUser + ">>");
     this.userID = isUser;
-    this.userID_str = String(isUser);
     this.loggedUser.myMethod(isUser);
+   // $scope.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.userID;
   }
 
+  refreshIframe() {
+    
+
+  
+}
 }
