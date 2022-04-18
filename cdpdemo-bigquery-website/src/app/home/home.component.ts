@@ -57,6 +57,7 @@ export class HomeComponent implements OnInit {
 
    refreshGraph(isUser : number)
   {
+    console.log(isUser + "refreshing");
    if(isUser >1)
    {    this.showGraph=false;
     this.url = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
