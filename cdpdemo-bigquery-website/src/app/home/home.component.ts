@@ -58,8 +58,8 @@ export class HomeComponent implements OnInit {
    refreshGraph(isUser : number)
   {
     console.log(isUser + "refreshing");
-   if(isUser >1)
-   {    this.showGraph=false;
+   if(isUser > 1)
+   {    this.showGraph=true;
     this.url = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
     console.log(this.url);
     // const iframe = this.hostElement.nativeElement.querySelector('iframe');
@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
 
    else
    {
-    this.showGraph=true;
+    this.showGraph=false;
     console.log("Showing graph");
    }
 
