@@ -7,6 +7,7 @@ import { animate, query, stagger, state, style, transition, trigger } from '@ang
 import * as _ from 'lodash';
 import { LoggedUserService } from '../logged-user.service';
 import { AOV } from '../AOV';
+import { VisitedUrl } from '../VisitedUrl';
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
@@ -66,10 +67,13 @@ import { AOV } from '../AOV';
 export class DataComponent implements OnInit {
   columns : string[] = ["Address","Name" ,"Email", "city" , "country", "primaryKey","date"];
   aovCol : string[] = ["Email","Orders" ,"Total_spend", "AOV"];
+  VisitedUrlCol : string[] = ["Email","VisitedUrl"];
   constructor(private rs: RestService ,private socketService: SocketService, private loggedUser: LoggedUserService,) { }
   users : Users[] = [];
   usersB : Users[] = [];
   AOV : AOV[] = [];
+  VisitedUrl : VisitedUrl[] = [];
+
   loaded = false;
 
 
@@ -173,7 +177,25 @@ export class DataComponent implements OnInit {
       (error) => console.log(error)
     )
 
-    
+    this.rs.getVisitedURL().subscribe
+    (
+      (response)=>
+      {
+        this.loaded = true;
+
+        if(this.VisitedUrl.length==0)
+        {
+          this.VisitedUrl=response;
+        }
+         
+        else
+        {
+          this.VisitedUrl=response;
+        }
+
+      },
+      (error) => console.log(error)
+    )
   }
 
   getKey(str : string)
@@ -186,5 +208,9 @@ export class DataComponent implements OnInit {
     return str as keyof AOV;
   }
 
+  getKeyVisitedUrl(str : string)
+  {
+    return str as keyof VisitedUrl;
+  }
 
 }

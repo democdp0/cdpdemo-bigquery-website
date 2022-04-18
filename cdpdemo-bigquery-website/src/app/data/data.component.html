@@ -75,4 +75,29 @@
     </tr>
 </tbody>
   </table>
+
+  <br>
+
+<div  class="header">
+  <h2>
+    Users visited URL on XYZ Blog
+  </h2>
+</div>
+<table   style="background-color: white;" class="table" *ngIf="loaded" id="users">
+
+    <thead>
+    <tr>
+      <th *ngFor="let col of VisitedUrlCol">
+        {{col}}
+      </th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let user of VisitedUrl ">
+      <td *ngFor="let col of VisitedUrlCol  ">
+        {{user[getKeyVisitedUrl(col)]}}
+      </td>
+    </tr>
+</tbody>
+  </table>
 </div>
