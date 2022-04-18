@@ -70,7 +70,11 @@ export class HomeComponent implements OnInit {
    }
 
    else
+   {
     this.showGraph=true;
+    console.log("Showing graph");
+   }
+
     
   
   }
