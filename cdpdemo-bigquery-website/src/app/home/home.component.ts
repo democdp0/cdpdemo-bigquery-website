@@ -59,8 +59,8 @@ export class HomeComponent implements OnInit {
    
     this.url = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
     console.log(this.url);
-    const iframe = this.hostElement.nativeElement.querySelector('iframe');
-    iframe.src = this.url;
+    // const iframe = this.hostElement.nativeElement.querySelector('iframe');
+    // iframe.src = this.url;
     this.ifr.nativeElement["src"] = this.url;
 
     this.loggedUser.myMethod(isUser);
