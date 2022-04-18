@@ -61,9 +61,4 @@ export class HomeComponent implements OnInit {
    // $scope.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.userID;
   }
 
-  refreshIframe() {
-    
-
-  
-}
 }
