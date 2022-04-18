@@ -58,10 +58,7 @@ export class HomeComponent implements OnInit {
    refreshGraph(isUser : number)
   {
    if(isUser >1)
-    this.showGraph=false;
-   else
-    this.showGraph=true;
-    
+   {    this.showGraph=false;
     this.url = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
     console.log(this.url);
     // const iframe = this.hostElement.nativeElement.querySelector('iframe');
@@ -70,6 +67,12 @@ export class HomeComponent implements OnInit {
 
     this.loggedUser.myMethod(isUser);
    // $scope.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.userID;
+   }
+
+   else
+    this.showGraph=true;
+    
+  
   }
 
 }
