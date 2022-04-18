@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Users } from './Users';
+import { AOV } from './AOV';
 
 
 @Injectable({
@@ -13,6 +14,13 @@ export class RestService {
   url : string = "https://api.cdpdemodashboard.tk/wordpressdb"
   goldenRecordUrl : string = "https://api.cdpdemodashboard.tk/goldenrecord"
   usersfromecommerceb : string = "https://api.cdpdemodashboard.tk/usersfromecommerceb"
+  usersaovecommerceb : string = "https://api.cdpdemodashboard.tk/usersaovecommerceb"
+
+
+  getUsersAOVEcommerceB()
+  {
+    return this.http.get<AOV[]>(this.usersaovecommerceb);
+  }
 
   getUsersFromEcommerceB()
   {

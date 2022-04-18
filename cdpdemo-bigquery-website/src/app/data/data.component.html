@@ -62,14 +62,14 @@
 
     <thead>
     <tr>
-      <th *ngFor="let col of columns">
+      <th *ngFor="let col of aovCol">
         {{col}}
       </th>
     </tr>
 </thead>
 <tbody>
-    <tr *ngFor="let user of usersB ">
-      <td *ngFor="let col of columns  ">
+    <tr *ngFor="let user of AOV ">
+      <td *ngFor="let col of aovCol  ">
         {{user[getKey(col)]}}
       </td>
     </tr>

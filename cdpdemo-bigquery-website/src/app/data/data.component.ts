@@ -6,6 +6,7 @@ import { skip } from 'rxjs';
 import { animate, query, stagger, state, style, transition, trigger } from '@angular/animations';
 import * as _ from 'lodash';
 import { LoggedUserService } from '../logged-user.service';
+import { AOV } from '../AOV';
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
@@ -64,9 +65,11 @@ import { LoggedUserService } from '../logged-user.service';
 
 export class DataComponent implements OnInit {
   columns : string[] = ["Address","Name" ,"Email", "city" , "country", "primaryKey","date"];
+  aovCol : string[] = ["Email","Orders" ,"Total_spend", "AOV"];
   constructor(private rs: RestService ,private socketService: SocketService, private loggedUser: LoggedUserService,) { }
   users : Users[] = [];
   usersB : Users[] = [];
+  AOV : AOV[] = [];
   loaded = false;
 
 
@@ -136,9 +139,9 @@ export class DataComponent implements OnInit {
       {
         this.loaded = true;
 
-        if(this.users.length==0)
+        if(this.usersB.length==0)
         {
-          this.users=response;
+          this.usersB=response;
         }
          
         else
@@ -150,6 +153,27 @@ export class DataComponent implements OnInit {
       (error) => console.log(error)
     )
 
+    this.rs.getUsersAOVEcommerceB().subscribe
+    (
+      (response)=>
+      {
+        this.loaded = true;
+
+        if(this.AOV.length==0)
+        {
+          this.AOV=response;
+        }
+         
+        else
+        {
+          this.AOV=response;
+        }
+
+      },
+      (error) => console.log(error)
+    )
+
+    
   }
 
   getKey(str : string)
