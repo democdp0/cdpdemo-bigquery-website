@@ -33,13 +33,6 @@ export class GoldenrecordComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.route.params.subscribe(
-      (params: Params) => {
-    
-        console.log(params['id'])
-    
-      }
-    )
 
     this.route.params.subscribe(params => {
       this.id = params['id']; // (+) converts string 'id' to a number
