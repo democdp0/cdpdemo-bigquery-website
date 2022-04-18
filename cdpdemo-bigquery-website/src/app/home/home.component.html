@@ -80,8 +80,9 @@
         <iframe *ngIf="showGraph" #ifr frameBorder="0" src="" >
         </iframe>
 
-        <div *ngIf="!showGraph">
-          <h1>No user available.</h1>
+        <div *ngIf="!showGraph" style="text-align:center">
+          <img style="width: 100px;" src="./assets/nouser.png">
+          <h1>No user login detected in Ecommerce A</h1>
         </div>
     </div>
     <div fxFlex>
