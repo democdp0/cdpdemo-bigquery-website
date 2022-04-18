@@ -4,7 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { LoggedUserService } from '../logged-user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-goldenrecord',
@@ -29,12 +29,20 @@ export class GoldenrecordComponent implements OnInit {
   //public userID : string = "24";
 
   private id: number =24;
-  private sub: any;
+
 
   ngOnInit(): void {
 
-    this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id']; // (+) converts string 'id' to a number
+    this.route.params.subscribe(
+      (params: Params) => {
+    
+        console.log(params)
+    
+      }
+    )
+
+    this.route.params.subscribe(params => {
+      this.id = params['id']; // (+) converts string 'id' to a number
  
       console.log("Loading" + this.id);
       // In a real app: dispatch action to load the details here.
@@ -82,7 +90,7 @@ export class GoldenrecordComponent implements OnInit {
   
       this._renderer2.appendChild(this._document.body, script);
 
-      
+
    });
 
   
