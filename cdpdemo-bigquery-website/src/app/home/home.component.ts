@@ -59,22 +59,23 @@ export class HomeComponent implements OnInit {
   {
     console.log(isUser + "refreshing");
    if(isUser > 1)
-   {    this.showGraph=true;
+   {    
+     this.showGraph=true;
     this.url = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
     console.log(this.url);
-    // const iframe = this.hostElement.nativeElement.querySelector('iframe');
-    // iframe.src = this.url;
+
     this.ifr.nativeElement["src"] = this.url;
 
     this.loggedUser.myMethod(isUser);
-    console.log("show graph");
-   // $scope.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.userID;
+  
+
    }
 
    else
    {
     this.showGraph=false;
-    console.log("hide graph");
+    this.ifr.nativeElement["src"] = "";
+
    }
 
     
