@@ -10,13 +10,15 @@ import { GoldenrecordComponent } from './goldenrecord/goldenrecord.component';
 import { DataComponent } from './data/data.component';
 import { CustomMaterialModule } from './core/custom-material-module.module';
 import { CookieService } from 'ngx-cookie-service';
+import { AudienceViewComponent } from './audience-view/audience-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     GoldenrecordComponent,
-    DataComponent
+    DataComponent,
+    AudienceViewComponent
   ],
   imports: [
     BrowserModule,
