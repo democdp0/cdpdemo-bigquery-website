@@ -1,4 +1,4 @@
-import { Component, Input, NgZone, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, NgZone, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 import { Renderer2, Inject } from '@angular/core';
@@ -14,11 +14,10 @@ import { LoggedUserService } from '../logged-user.service';
 
 export class HomeComponent implements OnInit {
 
-  @Input()
-  public userID : string = "" ; 
+  public url : string = "" ; 
 
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
-    @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,   ) {
+    @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,  private hostElement: ElementRef,  ) {
 
      }
     
@@ -56,8 +55,11 @@ export class HomeComponent implements OnInit {
    refreshGraph(isUser : number)
   {
    
-    this.userID = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
-    console.log(this.userID);
+    this.url = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
+    console.log(this.url);
+    const iframe = this.hostElement.nativeElement.querySelector('iframe');
+    iframe.src = this.url;
+    
     this.loggedUser.myMethod(isUser);
    // $scope.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.userID;
   }
