@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'data', component: DataComponent },
   { path: 'goldenrecord/:id', component: GoldenrecordComponent },
-  { path: 'audience', component: AudienceViewComponent },
+  { path: 'audience/:id', component: AudienceViewComponent },
   
 
 ];

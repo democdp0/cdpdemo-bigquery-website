@@ -15,10 +15,11 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
 export class HomeComponent implements OnInit {
 
   public url : string = "" ;
+  public url2 : string = "" ;
   showGraph : boolean = false;
   isUser :number = 0;
   @ViewChild('ifr') ifr: any ;
-
+  @ViewChild('ifr2') ifr2: any ;
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
     @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,  private hostElement: ElementRef, private sanitizer: DomSanitizer ) {
       
@@ -70,10 +71,12 @@ export class HomeComponent implements OnInit {
    {    
      this.showGraph=true;
     this.url = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
+    this.url2 = "https://cdpdemodashboard.tk/audience/"+isUser;
     console.log(this.url);
 
     this.ifr.nativeElement["src"] = this.url;
 
+    this.ifr2.nativeElement["src"] =  this.url2;
 
    }
 
@@ -81,7 +84,7 @@ export class HomeComponent implements OnInit {
    {
     this.showGraph=false;
     this.ifr.nativeElement["src"] = "";
-
+    this.ifr2.nativeElement["src"] = "";
    }
 
     
@@ -93,6 +96,7 @@ export class HomeComponent implements OnInit {
   {
     console.log("refresh graph only");
     this.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.isUser;
+    this.url2 = "https://cdpdemodashboard.tk/goldenrecord/"+this.isUser;
 
   }
 
