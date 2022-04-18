@@ -16,12 +16,17 @@ export class HomeComponent implements OnInit {
 
   public url : string = "" ;
   showGraph : boolean = false;
-
+  isUser :number = 0;
   @ViewChild('ifr') ifr: any ;
 
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
     @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,  private hostElement: ElementRef, private sanitizer: DomSanitizer ) {
+      
+      this.loggedUser.myMethod$.subscribe((data) => {
 
+        this.refreshGraphOnly();
+    }
+);
      }
     
   ngOnInit(): void {
@@ -58,6 +63,7 @@ export class HomeComponent implements OnInit {
    refreshGraph(isUser : number)
   {
     console.log(isUser + "refreshing");
+    this.isUser=isUser;
    if(isUser > 1)
    {    
      this.showGraph=true;
@@ -66,8 +72,6 @@ export class HomeComponent implements OnInit {
 
     this.ifr.nativeElement["src"] = this.url;
 
-    this.loggedUser.myMethod(isUser);
-  
 
    }
 
@@ -80,6 +84,14 @@ export class HomeComponent implements OnInit {
 
     
   
+  }
+
+
+  refreshGraphOnly()
+  {
+    console.log("refresh graph only");
+    this.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.isUser;
+
   }
 
 }

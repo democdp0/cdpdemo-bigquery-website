@@ -5,6 +5,7 @@ import { SocketService } from '../socket.service';
 import { skip } from 'rxjs';
 import { animate, query, stagger, state, style, transition, trigger } from '@angular/animations';
 import * as _ from 'lodash';
+import { LoggedUserService } from '../logged-user.service';
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
@@ -63,7 +64,7 @@ import * as _ from 'lodash';
 
 export class DataComponent implements OnInit {
   columns : string[] = ["Address","Name" ,"Email", "city" , "country", "primaryKey","date"];
-  constructor(private rs: RestService ,private socketService: SocketService) { }
+  constructor(private rs: RestService ,private socketService: SocketService, private loggedUser: LoggedUserService,) { }
   users : Users[] = [];
   loaded = false;
 
@@ -127,6 +128,10 @@ export class DataComponent implements OnInit {
         (error) => console.log(error)
       )
       console.log("Reload now : new data from big query")
+
+      
+      this.loggedUser.myMethod(true);
+  
     }
 
     

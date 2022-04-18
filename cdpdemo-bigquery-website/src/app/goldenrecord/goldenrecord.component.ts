@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { LoggedUserService } from '../logged-user.service';
+
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -14,14 +14,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class GoldenrecordComponent implements OnInit {
 
   constructor( private _renderer2: Renderer2, 
-    @Inject(DOCUMENT) private _document: Document , private loggedUser: LoggedUserService,private route: ActivatedRoute) { 
-      
-      this.loggedUser.myMethod$.subscribe((data) => {
-        this.id = data; // And he have data here too!
-        console.log("receving id " +this.id );
+    @Inject(DOCUMENT) private _document: Document , private route: ActivatedRoute) { 
 
-    }
-);
 
     }
 
