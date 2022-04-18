@@ -5,7 +5,7 @@ export class VisitedUrl
     VisitedUrl:string;
 
 
-    VisitedUrlCol : string[] = ["Email","VisitedUrl" ];
+    VisitedUrlCol : string[] = ["Email","url_visited" ];
     constructor(email: string, VisitedUrl: string)
     {
         this.Email = email;

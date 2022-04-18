@@ -67,7 +67,7 @@ import { VisitedUrl } from '../VisitedUrl';
 export class DataComponent implements OnInit {
   columns : string[] = ["Address","Name" ,"Email", "city" , "country", "primaryKey","date"];
   aovCol : string[] = ["Email","Orders" ,"Total_spend", "AOV"];
-  VisitedUrlCol : string[] = ["Email","VisitedUrl"];
+  VisitedUrlCol : string[] = ["Email","url_visited"];
   constructor(private rs: RestService ,private socketService: SocketService, private loggedUser: LoggedUserService,) { }
   users : Users[] = [];
   usersB : Users[] = [];
