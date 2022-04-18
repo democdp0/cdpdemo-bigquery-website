@@ -22,14 +22,16 @@ export class HomeComponent implements OnInit {
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
     @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,  private hostElement: ElementRef, private sanitizer: DomSanitizer ) {
       
-      this.loggedUser.myMethod$.subscribe((data) => {
 
-        this.refreshGraphOnly();
-    }
-);
      }
     
   ngOnInit(): void {
+
+    this.loggedUser.myMethod$.subscribe((data) => {
+
+      this.refreshGraphOnly();
+  }
+);
 
     let script = this._renderer2.createElement('script');
     script.type = `text/javascript`;
