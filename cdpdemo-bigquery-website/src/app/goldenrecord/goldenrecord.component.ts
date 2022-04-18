@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
@@ -25,8 +25,9 @@ export class GoldenrecordComponent implements OnInit {
 
     }
 
+  @Input()
+  public userID : string = "24";
 
-  public userID : number = 24;
   private id: number =24;
   private sub: any;
 
