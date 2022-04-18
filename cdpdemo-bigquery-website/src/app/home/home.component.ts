@@ -15,7 +15,8 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
 export class HomeComponent implements OnInit {
 
   public url : string = "" ;
-   
+  showGraph : boolean = false;
+
   @ViewChild('ifr') ifr: any ;
 
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
@@ -56,7 +57,11 @@ export class HomeComponent implements OnInit {
 
    refreshGraph(isUser : number)
   {
-   
+   if(isUser >1)
+    this.showGraph=false;
+   else
+    this.showGraph=true;
+    
     this.url = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
     console.log(this.url);
     // const iframe = this.hostElement.nativeElement.querySelector('iframe');

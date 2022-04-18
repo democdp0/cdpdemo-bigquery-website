@@ -77,8 +77,12 @@
         <div class="header" >
           Transform <a target="_blank" href="http://34.87.0.81:9100"><img src="./assets/maximize.svg"  height="25"width="25" fill="white"></a> 
           </div>
-        <iframe #ifr frameBorder="0" src="" >
+        <iframe *ngIf="showGraph; else noUser" #ifr frameBorder="0" src="" >
         </iframe>
+
+        <ng-template #noUser>
+          <h1>No user available.</h1>
+        </ng-template>
     </div>
     <div fxFlex>
       <div class="header" >
