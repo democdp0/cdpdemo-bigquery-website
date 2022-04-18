@@ -181,5 +181,10 @@ export class DataComponent implements OnInit {
     return str as keyof Users;
   }
 
+  getKeyAOV(str : string)
+  {
+    return str as keyof AOV;
+  }
+
 
 }
