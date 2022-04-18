@@ -4,12 +4,11 @@
 <div style="background-color: #F9F9F9;">
   <div class="header">
     <h2>
-      Historical data from Ecommerce A
+      User registration from Ecommerce A
     </h2>
 
   </div>
   <table style="background-color: white;" class="table" *ngIf="loaded" id="users">
-  
       <thead>
       <tr>
         <th *ngFor="let col of columns">
@@ -25,18 +24,38 @@
         </td>
       </tr>
     </ng-container>
-      <!-- <tr [@enterAnimation] *ngFor="let user of users ">
-        <td *ngFor="let col of columns  ">
-          {{user[getKey(col)]}}
-        </td>
-      </tr> -->
   </tbody>
     </table>
+<br>
+<div class="header">
+  <h2>
+    User Registration from Ecommerce B
+  </h2>
+
+</div>
+<table style="background-color: white;" class="table" *ngIf="loaded" id="users">
+    <thead>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+</thead>
+<tbody>
+  <ng-container *ngFor="let user of users ">
+    <tr [@enterAnimation]>
+      <td *ngFor="let col of columns  ">
+        {{user[getKey(col)]}}
+      </td>
+    </tr>
+  </ng-container>
+</tbody>
+  </table>
 <br>
 
 <div  class="header">
   <h2>
-    Historical data from Ecommerce B
+    Order History from Ecommerce B
   </h2>
 </div>
 <table   style="background-color: white;" class="table" *ngIf="loaded" id="users">
