@@ -26,8 +26,8 @@ export class GoldenrecordComponent implements OnInit {
     }
 
 
-  public userID : number = 0;
-  private id: number =0;
+  public userID : number = 24;
+  private id: number =24;
   private sub: any;
 
   ngOnInit(): void {
