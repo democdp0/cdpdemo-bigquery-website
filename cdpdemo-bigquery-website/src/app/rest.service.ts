@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Users } from './Users';
 import { AOV } from './AOV';
 import { VisitedUrl } from './VisitedUrl';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -17,6 +18,10 @@ export class RestService {
   usersfromecommerceb : string = "https://api.cdpdemodashboard.tk/usersfromecommerceb"
   usersaovecommerceb : string = "https://api.cdpdemodashboard.tk/usersaovecommerceb"
   visitedurl : string = "https://api.cdpdemodashboard.tk/visitedurl"
+
+  getNeo4jJson(id:string): Observable<any> {
+    return this.http.post('https://api.cdpdemodashboard.tk/neo4jjson', { id: id });
+  }
 
   getVisitedURL()
   {
