@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   public url : string = "" ;
    
-  @ViewChild('ifr') ifr: any ;
+  @ViewChild('ifr3') ifr: any ;
 
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
     @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,  private hostElement: ElementRef, private sanitizer: DomSanitizer ) {
