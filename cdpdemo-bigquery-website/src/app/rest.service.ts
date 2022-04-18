@@ -20,7 +20,7 @@ export class RestService {
 
   getVisitedURL()
   {
-    return this.http.get<VisitedUrl[]>(this.usersaovecommerceb);
+    return this.http.get<VisitedUrl[]>(this.visitedurl);
   }
 
   getUsersAOVEcommerceB()
