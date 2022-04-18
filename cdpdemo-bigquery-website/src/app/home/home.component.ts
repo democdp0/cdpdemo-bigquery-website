@@ -4,7 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { LoggedUserService } from '../logged-user.service';
-
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   public url : string = "" ; 
 
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
-    @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,  private hostElement: ElementRef,  ) {
+    @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,  private hostElement: ElementRef, private sanitizer: DomSanitizer ) {
 
      }
     
@@ -58,8 +58,8 @@ export class HomeComponent implements OnInit {
     this.url = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
     console.log(this.url);
     const iframe = this.hostElement.nativeElement.querySelector('iframe');
-    iframe.src = this.url;
-    
+    iframe.src = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+
     this.loggedUser.myMethod(isUser);
    // $scope.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.userID;
   }
