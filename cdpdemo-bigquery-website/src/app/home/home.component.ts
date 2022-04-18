@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, NgZone, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, NgZone, OnInit, ViewChild } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 import { Renderer2, Inject } from '@angular/core';
@@ -14,7 +14,9 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
 
 export class HomeComponent implements OnInit {
 
-  public url : string = "" ; 
+  public url : string = "" ;
+   
+  @ViewChild('ifr') ifr: any ;
 
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
     @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,  private hostElement: ElementRef, private sanitizer: DomSanitizer ) {
@@ -58,7 +60,8 @@ export class HomeComponent implements OnInit {
     this.url = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
     console.log(this.url);
     const iframe = this.hostElement.nativeElement.querySelector('iframe');
-    iframe.src = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+    iframe.src = this.url;
+    this.ifr.nativeElement["src"] = this.url;
 
     this.loggedUser.myMethod(isUser);
    // $scope.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.userID;
