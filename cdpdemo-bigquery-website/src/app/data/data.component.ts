@@ -66,6 +66,7 @@ export class DataComponent implements OnInit {
   columns : string[] = ["Address","Name" ,"Email", "city" , "country", "primaryKey","date"];
   constructor(private rs: RestService ,private socketService: SocketService, private loggedUser: LoggedUserService,) { }
   users : Users[] = [];
+  usersB : Users[] = [];
   loaded = false;
 
 
@@ -116,27 +117,39 @@ export class DataComponent implements OnInit {
               }
           });
 
-      
-    
-         
             this.users=array1;
-        
           }
 
-  
         },
         (error) => console.log(error)
       )
       console.log("Reload now : new data from big query")
-
-      
       this.loggedUser.myMethod(true);
   
     }
-
-    
-    
     )
+
+
+    this.rs.getUsersFromEcommerceB().subscribe
+    (
+      (response)=>
+      {
+        this.loaded = true;
+
+        if(this.users.length==0)
+        {
+          this.users=response;
+        }
+         
+        else
+        {
+          this.usersB=response;
+        }
+
+      },
+      (error) => console.log(error)
+    )
+
   }
 
   getKey(str : string)

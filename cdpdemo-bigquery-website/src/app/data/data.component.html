@@ -42,7 +42,7 @@
     </tr>
 </thead>
 <tbody>
-  <ng-container *ngFor="let user of users ">
+  <ng-container *ngFor="let user of usersB ">
     <tr [@enterAnimation]>
       <td *ngFor="let col of columns  ">
         {{user[getKey(col)]}}
@@ -68,7 +68,7 @@
     </tr>
 </thead>
 <tbody>
-    <tr *ngFor="let user of users ">
+    <tr *ngFor="let user of usersB ">
       <td *ngFor="let col of columns  ">
         {{user[getKey(col)]}}
       </td>

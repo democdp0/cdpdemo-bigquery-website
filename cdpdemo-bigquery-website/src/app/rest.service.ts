@@ -12,6 +12,13 @@ export class RestService {
 
   url : string = "https://api.cdpdemodashboard.tk/wordpressdb"
   goldenRecordUrl : string = "https://api.cdpdemodashboard.tk/goldenrecord"
+  usersfromecommerceb : string = "https://api.cdpdemodashboard.tk/usersfromecommerceb"
+
+  getUsersFromEcommerceB()
+  {
+    return this.http.get<Users[]>(this.usersfromecommerceb);
+  }
+
 
   getUsers()
   {
