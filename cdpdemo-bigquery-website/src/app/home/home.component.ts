@@ -15,7 +15,7 @@ import { LoggedUserService } from '../logged-user.service';
 export class HomeComponent implements OnInit {
 
   @Input()
-  public userID : number = 0 ; 
+  public userID : string = "" ; 
 
   constructor( private cookieService: CookieService, private _renderer2: Renderer2, 
     @Inject(DOCUMENT) private _document: Document, private loggedUser: LoggedUserService,    private ngZone: NgZone,   ) {
@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
    refreshGraph(isUser : number)
   {
     console.log(isUser + ">>");
-    this.userID = isUser;
+    this.userID = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
     this.loggedUser.myMethod(isUser);
    // $scope.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.userID;
   }
