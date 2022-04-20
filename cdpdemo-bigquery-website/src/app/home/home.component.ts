@@ -70,8 +70,8 @@ export class HomeComponent implements OnInit {
    if(isUser > 1)
    {    
      this.showGraph=true;
-    this.url = "https://cdpdemodashboard.tk/goldenrecord/"+isUser;
-    this.url2 = "https://cdpdemodashboard.tk/audience/"+isUser;
+    this.url = "https://cdpdemo.com/goldenrecord/"+isUser;
+    this.url2 = "https://cdpdemo.com/audience/"+isUser;
     console.log(this.url);
 
     this.ifr.nativeElement["src"] = this.url;
@@ -95,8 +95,8 @@ export class HomeComponent implements OnInit {
   refreshGraphOnly()
   {
     console.log("refresh graph only");
-    this.url = "https://cdpdemodashboard.tk/goldenrecord/"+this.isUser;
-    this.url2 = "https://cdpdemodashboard.tk/goldenrecord/"+this.isUser;
+    this.url = "https://cdpdemo.com/goldenrecord/"+this.isUser;
+    this.url2 = "https://cdpdemo.com/goldenrecord/"+this.isUser;
 
   }
 

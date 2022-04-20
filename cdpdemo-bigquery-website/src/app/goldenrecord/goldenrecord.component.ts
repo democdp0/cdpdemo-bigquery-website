@@ -42,7 +42,7 @@ export class GoldenrecordComponent implements OnInit {
                 encrypted: "ENCRYPTION_ON",
                 trust: "TRUST_SYSTEM_CA_SIGNED_CERTIFICATES",
                 container_id: "viz",
-                server_url: "bolt://neo4j.cdpdemodashboard.tk/:7687",
+                server_url: "bolt://neo4j.cdpdemo.com/:7687",
                 server_user: "neo4j",
                 server_password: "dt",
                 labels: {

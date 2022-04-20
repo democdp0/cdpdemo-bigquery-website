@@ -13,14 +13,14 @@ export class RestService {
 
   constructor(private http : HttpClient) { }
 
-  url : string = "https://api.cdpdemodashboard.tk/wordpressdb"
-  goldenRecordUrl : string = "https://api.cdpdemodashboard.tk/goldenrecord"
-  usersfromecommerceb : string = "https://api.cdpdemodashboard.tk/usersfromecommerceb"
-  usersaovecommerceb : string = "https://api.cdpdemodashboard.tk/usersaovecommerceb"
-  visitedurl : string = "https://api.cdpdemodashboard.tk/visitedurl"
+  url : string = "https://api.cdpdemo.com/wordpressdb"
+  goldenRecordUrl : string = "https://api.cdpdemo.com/goldenrecord"
+  usersfromecommerceb : string = "https://api.cdpdemo.com/usersfromecommerceb"
+  usersaovecommerceb : string = "https://api.cdpdemo.com/usersaovecommerceb"
+  visitedurl : string = "https://api.cdpdemo.com/visitedurl"
 
   getNeo4jJson(id:string): Observable<any> {
-    return this.http.post('https://api.cdpdemodashboard.tk/neo4jjson', { id: id });
+    return this.http.post('https://api.cdpdemo.com/neo4jjson', { id: id });
   }
 
   getVisitedURL()

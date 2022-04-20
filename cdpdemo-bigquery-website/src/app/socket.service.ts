@@ -9,7 +9,7 @@ export class SocketService {
   public message$: BehaviorSubject<string> = new BehaviorSubject('');
   constructor() {}
 
-  socket = io("https://api.cdpdemodashboard.tk");
+  socket = io("https://api.cdpdemo.com");
 
 
 public sendMessage(message: any) {
